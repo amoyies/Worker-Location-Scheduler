@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+    width: 200px;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.reset-btn {
+    background-color: #dc3545;
+}
+
+.reset-btn:hover {
+    background-color: #b02a37;
+}
+
+#schedule {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.worker-container, #locations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.worker-container {
+    width: 200px;
+}
+
+#workers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.worker {
+    padding: 10px;
+    background-color: #ffc107;
+    border: 1px solid #e0a800;
+    cursor: grab;
+    text-align: center;
+    font-weight: bold;
+    width: 150px;
+}
+
+.worker:active {
+    cursor: grabbing;
+}
+
+.location {
+    width: 250px;
+    height: 200px;
+    background-color: #ffffff;
+    border: 2px dashed #007bff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+.location h3 {
+    margin-top: 0;
+}
+
+.dropzone {
+    min-height: 120px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
