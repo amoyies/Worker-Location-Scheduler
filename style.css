@@ -99,3 +99,11 @@ button:hover {
     flex-direction: column;
     gap: 5px;
 }
+
+.save-btn {
+    background-color: #28a745;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
