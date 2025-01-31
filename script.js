@@ -8,7 +8,6 @@ function addLocation() {
     if (locationName === "") return;
 
     createLocation(locationName);
-    saveSchedule();
     document.getElementById("locationInput").value = "";
 }
 
@@ -34,7 +33,6 @@ function addWorker() {
     if (workerName === "") return;
 
     createWorker(workerName);
-    saveSchedule();
     document.getElementById("workerInput").value = "";
 }
 
@@ -62,16 +60,16 @@ function allowDrop(event) {
 function drop(event) {
     event.preventDefault();
     const workerName = event.dataTransfer.getData("text");
-    
+
     const workerElement = document.querySelector(`[data-worker='${workerName}']`);
     if (workerElement) {
         event.target.appendChild(workerElement);
     }
 
-    saveSchedule();
+    // No auto-save here; user must click "Save Schedule"
 }
 
-// Save schedule to localStorage
+// Save schedule to localStorage (manual save)
 function saveSchedule() {
     const locations = document.querySelectorAll(".location");
     const schedule = [];
@@ -82,12 +80,13 @@ function saveSchedule() {
         schedule.push({ location: locationName, workers: assignedWorkers });
     });
 
-    // Save the schedule and workers separately
+    // Save the schedule and unassigned workers separately
     localStorage.setItem("schedule", JSON.stringify(schedule));
 
-    // Save unassigned workers
     const unassignedWorkers = [...document.getElementById("workers").children].map(worker => worker.dataset.worker);
     localStorage.setItem("workers", JSON.stringify(unassignedWorkers));
+
+    alert("Schedule saved successfully!");
 }
 
 // Load schedule from localStorage
